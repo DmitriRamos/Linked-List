@@ -32,13 +32,26 @@ var LinkedList = /** @class */ (function () {
         this.head = head;
     }
     ;
+    // Print whole Linked List in order from head-tail
+    LinkedList.prototype.printList = function () {
+        var current = this.head;
+        console.log('head ->');
+        while (current != null) {
+            console.log("(".concat(current.data, "), next ->"));
+            current = current.nextNode;
+        }
+        if (current === null) {
+            console.log("null");
+        }
+    };
     // Add node to the end of the linked list
     LinkedList.prototype.append = function (node) {
         var current = this.head;
-        if (current === null) {
-            current = node;
+        if (current.nextNode === null) {
+            current.nextNode = node;
         }
         else {
+            current = current.nextNode;
             while (current.nextNode != null) {
                 current = current.nextNode;
             }
@@ -70,8 +83,8 @@ var LinkedList = /** @class */ (function () {
     return LinkedList;
 }());
 var linkedList = new LinkedList(head1);
-//linkedList.prepend(nodeB)
-//linkedList.prepend(nodeC)
-linkedList.append(nodeC);
+linkedList.prepend(nodeB);
+linkedList.prepend(nodeC);
 linkedList.append(nodeD);
-console.log(linkedList);
+linkedList.append(nodeE);
+linkedList.printList();

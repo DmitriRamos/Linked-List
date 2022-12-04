@@ -35,17 +35,32 @@ class LinkedList {
         this.head = head;
     };
 
+    // Print whole Linked List in order from head-tail
+    printList() {
+        let current:any = this.head
+        console.log('head ->')
+        while(current != null) {
+            console.log(`(${current.data}), next ->`)
+            current = current.nextNode
+        }
+        if (current === null) {
+            console.log("null")
+        }
+    }
+
+
     // Add node to the end of the linked list
     append(node: ListNode) {
-        let current = this.head
-        if(current === null) {
-            current = node
+        let current: any = this.head
+        if(current.nextNode === null) {
+            current.nextNode = node
         } else {
+            current = current.nextNode
             while (current.nextNode != null) {
-                current = current.nextNode   
+                    current = current.nextNode
             }
             current.nextNode = node
-        
+            
         }
     }   
 
@@ -80,13 +95,13 @@ class LinkedList {
 
 const linkedList = new LinkedList(head1)
 
-//linkedList.prepend(nodeB)
-//linkedList.prepend(nodeC)
+linkedList.prepend(nodeB)
+linkedList.prepend(nodeC)
 
-linkedList.append(nodeC)
 linkedList.append(nodeD)
+linkedList.append(nodeE)
 
 
 
-console.log(linkedList)
+linkedList.printList()
 
