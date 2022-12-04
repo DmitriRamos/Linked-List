@@ -1,8 +1,9 @@
 
+
 export class ListNode {
     data: number | null = null;
     nextNode: ListNode | null = null;
-    constructor(data: number) {
+    constructor(data: number, nextNode = null) {
         this.data = data;
         this.nextNode = null;
     };
@@ -36,16 +37,25 @@ class LinkedList {
 
     // Add node to the end of the linked list
     append(node: ListNode) {
-
-    }
+        let current = this.head
+        if(current === null) {
+            current = node
+        } else {
+            while (current.nextNode != null) {
+                current = current.nextNode   
+            }
+            current.nextNode = node
+        
+        }
+    }   
 
     // Add node to beginning of linked list
     prepend(node: ListNode) {
         node.nextNode = this.head
         this.head = node
         while(node.nextNode == null) {
-            let next = node.nextNode
-            node.nextNode = next.nextNode
+            let nextN = node.nextNode
+            node.nextNode = nextN.nextNode
         }
          
     } 
@@ -54,14 +64,14 @@ class LinkedList {
     // Count many nodes the linked-list contains
     countNodes():string | number{
         let count: number = 1
-        let nextNode = this.head.nextNode
-        if(nextNode == null) {
+        let nextBox = this.head.nextNode
+        if(nextBox == null) {
             return 1
         }
     
-        while(nextNode != null) {
+        while(nextBox != null) {
             count++
-            nextNode = nextNode.nextNode
+            nextBox = nextBox.nextNode
         }
         return `This Linked-List has ${count} nodes.`
     }
@@ -70,12 +80,13 @@ class LinkedList {
 
 const linkedList = new LinkedList(head1)
 
-linkedList.prepend(nodeB)
-linkedList.prepend(nodeC)
-linkedList.prepend(nodeD)
+//linkedList.prepend(nodeB)
+//linkedList.prepend(nodeC)
+
+linkedList.append(nodeC)
+linkedList.append(nodeD)
 
 
-linkedList
 
-console.log(linkedList.countNodes())
+console.log(linkedList)
 
