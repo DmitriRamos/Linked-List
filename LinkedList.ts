@@ -64,6 +64,25 @@ class LinkedList {
 
     }
 
+    // Search if Linked list contains given value
+    contains(value: string | number) {
+        let current: any = this.head;
+        let contain: null | boolean = null;
+        while (current != null) {
+            if (current.data === value) {
+                contain = true;
+            } 
+            if (current.nextNode === null && contain === null) {
+                contain = false;
+            }
+            if (current.nextNode === null) {
+            return contain;
+            }
+            current = current.nextNode;
+        }
+        
+    }
+
     // Print head node of the linked list
     printHead() {
         const head = this.head;
@@ -110,11 +129,11 @@ class LinkedList {
 
     // Remove last value in linked list
     pop() {
-        let current: any = this.head
+        let current: any = this.head;
         while (current.nextNode.nextNode != null) {
-            current = current.nextNode
+            current = current.nextNode;
         }
-       current.nextNode = current.nextNode.nextNode
+       current.nextNode = current.nextNode.nextNode;
 
     }
 
@@ -145,12 +164,11 @@ linkedList.append(nodeE);
 linkedList.append(nodeD);
 
 
-linkedList.pop()
-linkedList.pop()
 
 
-console.log(linkedList.countNodes())
+
 linkedList.printList()
+
 
 
 

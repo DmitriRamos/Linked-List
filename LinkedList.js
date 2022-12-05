@@ -59,6 +59,23 @@ var LinkedList = /** @class */ (function () {
             console.log("value at index ".concat(index, " is ").concat(current.data));
         }
     };
+    // Search if Linked list contains given value
+    LinkedList.prototype.contains = function (value) {
+        var current = this.head;
+        var contain = null;
+        while (current != null) {
+            if (current.data === value) {
+                contain = true;
+            }
+            if (current.nextNode === null && contain === null) {
+                contain = false;
+            }
+            if (current.nextNode === null) {
+                return contain;
+            }
+            current = current.nextNode;
+        }
+    };
     // Print head node of the linked list
     LinkedList.prototype.printHead = function () {
         var head = this.head;
@@ -125,7 +142,5 @@ linkedList.prepend(nodeB);
 linkedList.prepend(nodeC);
 linkedList.append(nodeE);
 linkedList.append(nodeD);
-linkedList.pop();
-linkedList.pop();
-console.log(linkedList.countNodes());
 linkedList.printList();
+console.log(linkedList.contains(0));
