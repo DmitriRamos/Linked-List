@@ -48,11 +48,29 @@ class LinkedList {
         }
     }
 
+    // Find tha value at given index of the linked list
+    valueAt(index: number) {
+        let current: any = this.head
+        let ind: number = 0
+        if (index === 0) {
+            console.log(`value at index ${index} is ${current.data}`)
+        } else {
+            while (ind != index ) {
+                ind++
+                current = current.nextNode
+            }
+            console.log(`value at index ${index} is ${current.data}`)
+        }
+
+    }
+
+    // Print head node of the linked list
     printHead() {
         const head = this.head
         console.log(`Head value is ${head.data}`)
     }
 
+    // Print tail node of the linked list
     printTail() {
         let current: any = this.head
         while(current != null) {
@@ -117,6 +135,6 @@ linkedList.append(nodeE)
 linkedList.append(nodeD)
 
 
-
-linkedList.printTail()
+//linkedList.printList()
+linkedList.valueAt(3)
 

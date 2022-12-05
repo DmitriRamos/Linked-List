@@ -44,10 +44,27 @@ var LinkedList = /** @class */ (function () {
             console.log("null");
         }
     };
+    // Find tha value at given index of the linked list
+    LinkedList.prototype.valueAt = function (index) {
+        var current = this.head;
+        var ind = 0;
+        if (index === 0) {
+            console.log("value at index ".concat(index, " is ").concat(current.data));
+        }
+        else {
+            while (ind != index) {
+                ind++;
+                current = current.nextNode;
+            }
+            console.log("value at index ".concat(index, " is ").concat(current.data));
+        }
+    };
+    // Print head node of the linked list
     LinkedList.prototype.printHead = function () {
         var head = this.head;
         console.log("Head value is ".concat(head.data));
     };
+    // Print tail node of the linked list
     LinkedList.prototype.printTail = function () {
         var current = this.head;
         while (current != null) {
@@ -100,4 +117,5 @@ linkedList.prepend(nodeB);
 linkedList.prepend(nodeC);
 linkedList.append(nodeE);
 linkedList.append(nodeD);
-linkedList.printTail();
+//linkedList.printList()
+linkedList.valueAt(3);
