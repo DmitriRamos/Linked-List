@@ -97,6 +97,14 @@ var LinkedList = /** @class */ (function () {
             node.nextNode = nextN.nextNode;
         }
     };
+    // Remove last value in linked list
+    LinkedList.prototype.pop = function () {
+        var current = this.head;
+        while (current.nextNode.nextNode != null) {
+            current = current.nextNode;
+        }
+        current.nextNode = current.nextNode.nextNode;
+    };
     // Count many nodes the linked-list contains
     LinkedList.prototype.countNodes = function () {
         var count = 1;
@@ -117,5 +125,7 @@ linkedList.prepend(nodeB);
 linkedList.prepend(nodeC);
 linkedList.append(nodeE);
 linkedList.append(nodeD);
-//linkedList.printList()
-linkedList.valueAt(3);
+linkedList.pop();
+linkedList.pop();
+console.log(linkedList.countNodes());
+linkedList.printList();
