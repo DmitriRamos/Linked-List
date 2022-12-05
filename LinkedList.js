@@ -76,6 +76,21 @@ var LinkedList = /** @class */ (function () {
             current = current.nextNode;
         }
     };
+    // Find index of current given value in the LinkedList
+    LinkedList.prototype.find = function (value) {
+        var current = this.head;
+        var count = 0;
+        while (current != null) {
+            if (current.data === value) {
+                return "The value of ".concat(value, ", is located at index ").concat(count);
+            }
+            if (current.data != value && current.nextNode === null) {
+                return null;
+            }
+            count++;
+            current = current.nextNode;
+        }
+    };
     // Print head node of the linked list
     LinkedList.prototype.printHead = function () {
         var head = this.head;
@@ -142,5 +157,5 @@ linkedList.prepend(nodeB);
 linkedList.prepend(nodeC);
 linkedList.append(nodeE);
 linkedList.append(nodeD);
+console.log(linkedList.find(5));
 linkedList.printList();
-console.log(linkedList.contains(0));

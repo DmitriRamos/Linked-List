@@ -83,6 +83,22 @@ class LinkedList {
         
     }
 
+    // Find index of current given value in the LinkedList
+    find(value) {
+        let current: any = this.head;
+        let count = 0;
+        while (current != null) {
+            if (current.data === value) {
+                return `The value of ${value}, is located at index ${count}`;
+            }
+            if (current.data != value && current.nextNode === null) {
+                return null;
+            }
+            count++;
+            current = current.nextNode;
+        }
+    }
+
     // Print head node of the linked list
     printHead() {
         const head = this.head;
@@ -167,6 +183,7 @@ linkedList.append(nodeD);
 
 
 
+console.log(linkedList.find(5))
 linkedList.printList()
 
 
