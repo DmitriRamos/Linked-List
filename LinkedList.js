@@ -44,6 +44,19 @@ var LinkedList = /** @class */ (function () {
             console.log("null");
         }
     };
+    LinkedList.prototype.printHead = function () {
+        var head = this.head;
+        console.log("Head value is ".concat(head.data));
+    };
+    LinkedList.prototype.printTail = function () {
+        var current = this.head;
+        while (current != null) {
+            current = current.nextNode;
+            if ((current === null || current === void 0 ? void 0 : current.nextNode) === null) {
+                console.log("Tail value is ".concat(current.data));
+            }
+        }
+    };
     // Add node to the end of the linked list
     LinkedList.prototype.append = function (node) {
         var current = this.head;
@@ -85,6 +98,6 @@ var LinkedList = /** @class */ (function () {
 var linkedList = new LinkedList(head1);
 linkedList.prepend(nodeB);
 linkedList.prepend(nodeC);
-linkedList.append(nodeD);
 linkedList.append(nodeE);
-linkedList.printList();
+linkedList.append(nodeD);
+linkedList.printTail();

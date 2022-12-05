@@ -48,6 +48,21 @@ class LinkedList {
         }
     }
 
+    printHead() {
+        const head = this.head
+        console.log(`Head value is ${head.data}`)
+    }
+
+    printTail() {
+        let current: any = this.head
+        while(current != null) {
+            current = current.nextNode
+            if (current?.nextNode === null) {
+                console.log(`Tail value is ${current.data}`)
+            }
+        }
+    }
+
 
     // Add node to the end of the linked list
     append(node: ListNode) {
@@ -98,10 +113,10 @@ const linkedList = new LinkedList(head1)
 linkedList.prepend(nodeB)
 linkedList.prepend(nodeC)
 
-linkedList.append(nodeD)
 linkedList.append(nodeE)
+linkedList.append(nodeD)
 
 
 
-linkedList.printList()
+linkedList.printTail()
 
